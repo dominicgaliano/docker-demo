@@ -3,11 +3,26 @@
 version: '3'
 services:
   app1:
-    build: ./app1
+    image: node:lts 
+    container_name: app1_container
+    working_dir: /app1
     ports:
-      - 127.0.0.1:3000:3000
+      - "3000:3000"
+    volumes:
+      - ./app1:/app1
+      - type: bind
+        source: ./app1
+        target: /app1
+    command: npm run dev
   app2:
-    build: ./app2
+    image: node:lts 
+    container_name: app2_container
+    working_dir: /app2
     ports:
-      - 127.0.0.1:3001:3001
-
+      - "3001:3001"
+    volumes:
+      - ./app2:/app2
+      - type: bind
+        source: ./app2
+        target: /app2
+    command: npm run dev

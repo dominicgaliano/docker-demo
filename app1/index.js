@@ -14,11 +14,6 @@ app.get("/api", (req, res) => {
   res.send('API route');
 });
 
-app.get("/api/test", (req, res) => {
-  res.status(200);
-  res.send('test route');
-});
-
 module.exports = app;
 
 if (require.main === module) {
